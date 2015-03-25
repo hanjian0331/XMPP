@@ -12,6 +12,7 @@
 @interface AppDelegate ()<XMPPStreamDelegate>
 {
     XMPPStream *_XMPPStream;
+    XMPPRresultBlock _resultBlock;
 }
 @end
 
@@ -19,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [self connentToHost];
+//    [self connentToHost];
     
     return YES;
 }
@@ -34,15 +35,18 @@
     [_XMPPStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 
 }
-#pragma mark 连接到服务器
+#pragma mark 开始连接到服务器
 - (void)connentToHost
 {
+    HJLog(@"开始连接到服务器");
     if (!_XMPPStream) {
         [self setupXMPPStream];
     }
     //设置JID
-    //resource标实用户的客户端
-    XMPPJID *myJID = [XMPPJID jidWithUser:@"lisi" domain:@"CCR.local" resource:@"iPHone"];
+    //resource标实用户的客户端］
+    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"CCR.local" resource:@"iPHone"];
     _XMPPStream.myJID = myJID;
     
     //设置服务器的域名
@@ -52,21 +56,24 @@
     
     NSError *err = nil;
     if (![_XMPPStream connectWithTimeout:XMPPStreamTimeoutNone error:&err]) {
-        NSLog(@"%@",err);
+        HJLog(@"%@",err);
     }
 }
 #pragma mark 发送密码
 - (void)sendPwsToHost
 {
+    HJLog(@"发送密码给主机");
     NSError *err = nil;
-    if (![_XMPPStream authenticateWithPassword:@"lisi" error:&err]) {
-        NSLog(@"%@",err);
+     NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    if (![_XMPPStream authenticateWithPassword:pwd error:&err]) {
+        HJLog(@"%@",err);
     }
     
 }
 #pragma mark 发送在线消息
 - (void)sendOnlineToHost
 {
+    HJLog(@"发送在线消息");
     XMPPPresence *presence = [XMPPPresence presence];
     [_XMPPStream sendElement:presence];
 }
@@ -75,24 +82,35 @@
 #pragma mark 与主机连接成功
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
 {
-    NSLog(@"与主机连接成功");
+    HJLog(@"与主机连接成功");
     [self sendPwsToHost];
 }
-#pragma mark 断开连接
+#pragma mark 与主机断开连接
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error
 {
-    NSLog(@"与主机断开连接\n%@",error);
+    if (error && _resultBlock) {
+        _resultBlock(XMPPResultTypeNetErr);
+    }
+    HJLog(@"与主机断开连接:%@",error);
 }
 #pragma mark 授权成功
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
 {
-    NSLog(@"授权成功");
+    HJLog(@"授权成功");
     [self sendOnlineToHost];
+    
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeLoginSuccess);
+    }
+
 }
 #pragma mark 授权失败
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error
 {
-    NSLog(@"授权失败\n%@",error);
+    HJLog(@"授权失败\n%@",error);
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeLoginFailure);
+    }
 }
 
 #pragma mark - 公共方法
@@ -104,5 +122,14 @@
     [_XMPPStream sendElement:offline];
     //与主机断开连接
     [_XMPPStream disconnect];
+}
+
+- (void)xmppUserLogin:(XMPPRresultBlock)resultBlock
+{
+    _resultBlock = resultBlock;
+    //如果以前连接过要断开
+    [_XMPPStream disconnect];
+    //连接主机
+    [self connentToHost];
 }
 @end

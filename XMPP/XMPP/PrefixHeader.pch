@@ -12,5 +12,15 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <UIKit/UIKit.h>
+#import "CategoryWF.h"
+#import "MBProgressHUD+HM.h"
+
+
+//自定义log
+#ifdef DEBUG
+#define HJLog(...) NSLog(@"%s %@",__func__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define HJLog(...)
+#endif
 
 #endif

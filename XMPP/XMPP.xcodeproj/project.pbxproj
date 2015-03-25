@@ -157,6 +157,17 @@
 		26CD773D1AC29A3E00D897FF /* XMPPSRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77341AC29A3E00D897FF /* XMPPSRVResolver.m */; };
 		26CD773E1AC29A3E00D897FF /* XMPPStringPrep.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77361AC29A3E00D897FF /* XMPPStringPrep.m */; };
 		26CD773F1AC29A3E00D897FF /* XMPPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77381AC29A3E00D897FF /* XMPPTimer.m */; };
+		26CD77471AC2C89F00D897FF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CD77461AC2C89F00D897FF /* Login.storyboard */; };
+		26CD774B1AC2D13A00D897FF /* HJOtherLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD774A1AC2D13A00D897FF /* HJOtherLoginViewController.m */; };
+		26CD775A1AC2D34200D897FF /* UIButton+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD774F1AC2D34200D897FF /* UIButton+WF.m */; };
+		26CD775B1AC2D34200D897FF /* UIImage+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77511AC2D34200D897FF /* UIImage+WF.m */; };
+		26CD775C1AC2D34200D897FF /* UIScreen+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77531AC2D34200D897FF /* UIScreen+WF.m */; };
+		26CD775D1AC2D34200D897FF /* UIStoryboard+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77551AC2D34200D897FF /* UIStoryboard+WF.m */; };
+		26CD775E1AC2D34200D897FF /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77571AC2D34200D897FF /* UITextField+WF.m */; };
+		26CD775F1AC2D34200D897FF /* UIView+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77591AC2D34200D897FF /* UIView+WF.m */; };
+		26CD77631AC2E7B700D897FF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD77621AC2E7B700D897FF /* MBProgressHUD.m */; };
+		26CD77681AC2EEAB00D897FF /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26CD77671AC2EEAB00D897FF /* MBProgressHUD.bundle */; };
+		26CD776E1AC2F2A900D897FF /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD776D1AC2F2A900D897FF /* MBProgressHUD+HM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,8 +184,8 @@
 		26CD75041AC2799100D897FF /* XMPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CD75081AC2799100D897FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CD75091AC2799100D897FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		26CD750B1AC2799100D897FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		26CD750C1AC2799100D897FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		26CD750B1AC2799100D897FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
+		26CD750C1AC2799100D897FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		26CD750E1AC2799100D897FF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		26CD750F1AC2799100D897FF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		26CD75121AC2799100D897FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -479,6 +490,27 @@
 		26CD77381AC29A3E00D897FF /* XMPPTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPTimer.m; sourceTree = "<group>"; };
 		26CD77401AC29A8F00D897FF /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		26CD77421AC2A95B00D897FF /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
+		26CD77461AC2C89F00D897FF /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		26CD77491AC2D13A00D897FF /* HJOtherLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJOtherLoginViewController.h; sourceTree = "<group>"; };
+		26CD774A1AC2D13A00D897FF /* HJOtherLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJOtherLoginViewController.m; sourceTree = "<group>"; };
+		26CD774D1AC2D34200D897FF /* CategoryWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryWF.h; sourceTree = "<group>"; };
+		26CD774E1AC2D34200D897FF /* UIButton+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WF.h"; sourceTree = "<group>"; };
+		26CD774F1AC2D34200D897FF /* UIButton+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WF.m"; sourceTree = "<group>"; };
+		26CD77501AC2D34200D897FF /* UIImage+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WF.h"; sourceTree = "<group>"; };
+		26CD77511AC2D34200D897FF /* UIImage+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WF.m"; sourceTree = "<group>"; };
+		26CD77521AC2D34200D897FF /* UIScreen+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+WF.h"; sourceTree = "<group>"; };
+		26CD77531AC2D34200D897FF /* UIScreen+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+WF.m"; sourceTree = "<group>"; };
+		26CD77541AC2D34200D897FF /* UIStoryboard+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+WF.h"; sourceTree = "<group>"; };
+		26CD77551AC2D34200D897FF /* UIStoryboard+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+WF.m"; sourceTree = "<group>"; };
+		26CD77561AC2D34200D897FF /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
+		26CD77571AC2D34200D897FF /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
+		26CD77581AC2D34200D897FF /* UIView+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WF.h"; sourceTree = "<group>"; };
+		26CD77591AC2D34200D897FF /* UIView+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WF.m"; sourceTree = "<group>"; };
+		26CD77611AC2E7B700D897FF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		26CD77621AC2E7B700D897FF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		26CD77671AC2EEAB00D897FF /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		26CD776C1AC2F2A900D897FF /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
+		26CD776D1AC2F2A900D897FF /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -524,11 +556,8 @@
 			isa = PBXGroup;
 			children = (
 				26CD752F1AC2956000D897FF /* Classes */,
-				26CD750B1AC2799100D897FF /* AppDelegate.h */,
-				26CD750C1AC2799100D897FF /* AppDelegate.m */,
 				26CD750E1AC2799100D897FF /* ViewController.h */,
 				26CD750F1AC2799100D897FF /* ViewController.m */,
-				26CD75111AC2799100D897FF /* Main.storyboard */,
 				26CD75141AC2799100D897FF /* Images.xcassets */,
 				26CD75161AC2799100D897FF /* LaunchScreen.xib */,
 				26CD75071AC2799100D897FF /* Supporting Files */,
@@ -568,6 +597,9 @@
 		26CD752F1AC2956000D897FF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				26CD77451AC2C86900D897FF /* Main */,
+				26CD77441AC2C84600D897FF /* Login */,
+				26CD77431AC2C81A00D897FF /* Others */,
 				26CD75301AC2957600D897FF /* Lib */,
 			);
 			path = Classes;
@@ -576,6 +608,8 @@
 		26CD75301AC2957600D897FF /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				26CD77601AC2E79F00D897FF /* MBProgressHUD */,
+				26CD774C1AC2D34200D897FF /* Category */,
 				26CD75311AC2959400D897FF /* XMPP */,
 			);
 			path = Lib;
@@ -1449,6 +1483,73 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		26CD77431AC2C81A00D897FF /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				26CD750B1AC2799100D897FF /* AppDelegate.h */,
+				26CD750C1AC2799100D897FF /* AppDelegate.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		26CD77441AC2C84600D897FF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				26CD77481AC2D10600D897FF /* Controllers */,
+				26CD77461AC2C89F00D897FF /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		26CD77451AC2C86900D897FF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				26CD75111AC2799100D897FF /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		26CD77481AC2D10600D897FF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				26CD77491AC2D13A00D897FF /* HJOtherLoginViewController.h */,
+				26CD774A1AC2D13A00D897FF /* HJOtherLoginViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		26CD774C1AC2D34200D897FF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				26CD774D1AC2D34200D897FF /* CategoryWF.h */,
+				26CD774E1AC2D34200D897FF /* UIButton+WF.h */,
+				26CD774F1AC2D34200D897FF /* UIButton+WF.m */,
+				26CD77501AC2D34200D897FF /* UIImage+WF.h */,
+				26CD77511AC2D34200D897FF /* UIImage+WF.m */,
+				26CD77521AC2D34200D897FF /* UIScreen+WF.h */,
+				26CD77531AC2D34200D897FF /* UIScreen+WF.m */,
+				26CD77541AC2D34200D897FF /* UIStoryboard+WF.h */,
+				26CD77551AC2D34200D897FF /* UIStoryboard+WF.m */,
+				26CD77561AC2D34200D897FF /* UITextField+WF.h */,
+				26CD77571AC2D34200D897FF /* UITextField+WF.m */,
+				26CD77581AC2D34200D897FF /* UIView+WF.h */,
+				26CD77591AC2D34200D897FF /* UIView+WF.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		26CD77601AC2E79F00D897FF /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				26CD77671AC2EEAB00D897FF /* MBProgressHUD.bundle */,
+				26CD77611AC2E7B700D897FF /* MBProgressHUD.h */,
+				26CD77621AC2E7B700D897FF /* MBProgressHUD.m */,
+				26CD776C1AC2F2A900D897FF /* MBProgressHUD+HM.h */,
+				26CD776D1AC2F2A900D897FF /* MBProgressHUD+HM.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1498,6 +1599,7 @@
 				TargetAttributes = {
 					26CD75031AC2799100D897FF = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 6ADJ2TL5DB;
 					};
 					26CD751C1AC2799100D897FF = {
 						CreatedOnToolsVersion = 6.2;
@@ -1531,9 +1633,11 @@
 			files = (
 				26CD75781AC2988E00D897FF /* build-libidn.sh in Resources */,
 				26CD75131AC2799100D897FF /* Main.storyboard in Resources */,
+				26CD77471AC2C89F00D897FF /* Login.storyboard in Resources */,
 				26CD75181AC2799100D897FF /* LaunchScreen.xib in Resources */,
 				26CD75541AC2974700D897FF /* README.txt in Resources */,
 				26CD75151AC2799100D897FF /* Images.xcassets in Resources */,
+				26CD77681AC2EEAB00D897FF /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1551,6 +1655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CD775B1AC2D34200D897FF /* UIImage+WF.m in Sources */,
 				26CD76BE1AC298C400D897FF /* XMPPJID.m in Sources */,
 				26CD76F11AC298C400D897FF /* XMPPvCardTempAdrTypes.m in Sources */,
 				26CD76E11AC298C400D897FF /* XMPPRoomHybridStorage.m in Sources */,
@@ -1565,6 +1670,7 @@
 				26CD76F21AC298C400D897FF /* XMPPvCardTempBase.m in Sources */,
 				26CD76DB1AC298C400D897FF /* XMPPPrivacy.m in Sources */,
 				26CD77041AC298C400D897FF /* NSString+XEP_0106.m in Sources */,
+				26CD775C1AC2D34200D897FF /* UIScreen+WF.m in Sources */,
 				26CD754F1AC2974700D897FF /* DDLog.m in Sources */,
 				26CD771E1AC298C400D897FF /* XMPPAttentionModule.m in Sources */,
 				26CD770D1AC298C400D897FF /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
@@ -1595,9 +1701,11 @@
 				26CD76C71AC298C400D897FF /* XMPPIncomingFileTransfer.m in Sources */,
 				26CD77161AC298C400D897FF /* XMPPStreamManagementStanzas.m in Sources */,
 				26CD76BB1AC298C400D897FF /* XMPPConstants.m in Sources */,
+				26CD776E1AC2F2A900D897FF /* MBProgressHUD+HM.m in Sources */,
 				26CD76FD1AC298C400D897FF /* XMPPMessage+XEP_0066.m in Sources */,
 				26CD75101AC2799100D897FF /* ViewController.m in Sources */,
 				26CD76DD1AC298C400D897FF /* XMPPRoomCoreDataStorage.m in Sources */,
+				26CD775E1AC2D34200D897FF /* UITextField+WF.m in Sources */,
 				26CD76CE1AC298C400D897FF /* XMPPRoster.xcdatamodel in Sources */,
 				26CD76CD1AC298C400D897FF /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				26CD76CF1AC298C400D897FF /* XMPPRosterCoreDataStorage.m in Sources */,
@@ -1608,6 +1716,7 @@
 				26CD76D21AC298C400D897FF /* XMPPRosterMemoryStorage.m in Sources */,
 				26CD76E91AC298C400D897FF /* XMPPRoom.m in Sources */,
 				26CD77091AC298C400D897FF /* XMPPCapabilities.m in Sources */,
+				26CD77631AC2E7B700D897FF /* MBProgressHUD.m in Sources */,
 				26CD77131AC298C400D897FF /* XMPPMessageDeliveryReceipts.m in Sources */,
 				26CD76D71AC298C400D897FF /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				26CD76BD1AC298C400D897FF /* XMPPIQ.m in Sources */,
@@ -1618,7 +1727,9 @@
 				26CD76D51AC298C400D897FF /* XMPPSystemInputActivityMonitor.m in Sources */,
 				26CD75691AC2976D00D897FF /* DDXMLNode.m in Sources */,
 				26CD75511AC2974700D897FF /* DDContextFilterLogFormatter.m in Sources */,
+				26CD775A1AC2D34200D897FF /* UIButton+WF.m in Sources */,
 				26CD77121AC298C400D897FF /* XMPPMessage+XEP_0184.m in Sources */,
+				26CD775D1AC2D34200D897FF /* UIStoryboard+WF.m in Sources */,
 				26CD76C81AC298C400D897FF /* XMPPOutgoingFileTransfer.m in Sources */,
 				26CD76C91AC298C400D897FF /* XMPPGoogleSharedStatus.m in Sources */,
 				26CD76F51AC298C400D897FF /* XMPPvCardTempModule.m in Sources */,
@@ -1636,6 +1747,7 @@
 				26CD77011AC298C400D897FF /* XMPPMessage+XEP_0085.m in Sources */,
 				26CD76ED1AC298C400D897FF /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				26CD76CB1AC298C400D897FF /* XMPPReconnect.m in Sources */,
+				26CD774B1AC2D13A00D897FF /* HJOtherLoginViewController.m in Sources */,
 				26CD76BF1AC298C400D897FF /* XMPPMessage.m in Sources */,
 				26CD77251AC298C400D897FF /* NSXMLElement+XEP_0335.m in Sources */,
 				26CD77031AC298C400D897FF /* XMPPTransports.m in Sources */,
@@ -1656,6 +1768,7 @@
 				26CD76FA1AC298C400D897FF /* XMPPPubSub.m in Sources */,
 				26CD76C01AC298C400D897FF /* XMPPModule.m in Sources */,
 				26CD76C11AC298C400D897FF /* XMPPParser.m in Sources */,
+				26CD775F1AC2D34200D897FF /* UIView+WF.m in Sources */,
 				26CD76BA1AC298C400D897FF /* NSXMLElement+XMPP.m in Sources */,
 				26CD76E21AC298C400D897FF /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
 				26CD75531AC2974700D897FF /* DDMultiFormatter.m in Sources */,
@@ -1720,6 +1833,7 @@
 				26CD75121AC2799100D897FF /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		26CD75161AC2799100D897FF /* LaunchScreen.xib */ = {
@@ -1815,6 +1929,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XMPP/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1831,6 +1947,7 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1838,6 +1955,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XMPP/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -1854,6 +1973,7 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

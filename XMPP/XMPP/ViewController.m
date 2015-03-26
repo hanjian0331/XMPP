@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -25,9 +24,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate logout];
-}
 @end

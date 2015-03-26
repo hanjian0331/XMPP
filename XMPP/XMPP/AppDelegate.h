@@ -21,7 +21,7 @@ typedef void (^XMPPRresultBlock)(XMPPResultType type);
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)logout;
+- (void)xmppUserLogout;
 - (void)xmppUserLogin:(XMPPRresultBlock)resultBlock;
 @end
 

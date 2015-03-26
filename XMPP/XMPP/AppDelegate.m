@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XMPP.h"
+#import "HJNavigationController.h"
 
 @interface AppDelegate ()<XMPPStreamDelegate>
 {
@@ -18,9 +19,19 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //设置导航栏的背景
+    [HJNavigationController setupNavTheme];
     
-//    [self connentToHost];
+    [[HJUserInfo sharedHJUserInfo] loadUserInfoFromSanbox];
+    
+    //判断用户的登陆状态
+    if ([HJUserInfo sharedHJUserInfo].loginStatus) {
+        self.window.rootViewController = [UIStoryboard storyboardWithName:@"Main" bundle:nil].instantiateInitialViewController;
+        //自动登录服务器
+        [self xmppUserLogin:nil];
+    }
     
     return YES;
 }
@@ -44,7 +55,7 @@
     }
     //设置JID
     //resource标实用户的客户端］
-    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    NSString *user = [HJUserInfo sharedHJUserInfo].user;
     
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"CCR.local" resource:@"iPHone"];
     _XMPPStream.myJID = myJID;
@@ -64,7 +75,7 @@
 {
     HJLog(@"发送密码给主机");
     NSError *err = nil;
-     NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+     NSString *pwd = [HJUserInfo sharedHJUserInfo].pwd;
     if (![_XMPPStream authenticateWithPassword:pwd error:&err]) {
         HJLog(@"%@",err);
     }
@@ -115,13 +126,20 @@
 
 #pragma mark - 公共方法
 #pragma mark 注销
-- (void)logout
+- (void)xmppUserLogout
 {
     //发送离线消息
     XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
     [_XMPPStream sendElement:offline];
     //与主机断开连接
     [_XMPPStream disconnect];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    self.window.rootViewController = storyboard.instantiateInitialViewController;
+    
+    //登陆状态改为no
+    [HJUserInfo sharedHJUserInfo].loginStatus = NO;
+    [[HJUserInfo sharedHJUserInfo] saveUserInfoToSanbox];
 }
 
 - (void)xmppUserLogin:(XMPPRresultBlock)resultBlock

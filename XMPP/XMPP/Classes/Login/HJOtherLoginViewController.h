@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 HJ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HJBaseLoginViewController.h"
 
-@interface HJOtherLoginViewController : UIViewController
+@interface HJOtherLoginViewController : HJBaseLoginViewController
 
 @end

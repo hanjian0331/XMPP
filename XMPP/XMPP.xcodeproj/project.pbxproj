@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2672B12D1AC3F750009B65AD /* HJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B12C1AC3F750009B65AD /* HJNavigationController.m */; };
+		2672B1311AC41624009B65AD /* HJMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1301AC41624009B65AD /* HJMeViewController.m */; };
+		2672B1341AC41BDB009B65AD /* HJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1331AC41BDB009B65AD /* HJLoginViewController.m */; };
+		2672B13B1AC41EE5009B65AD /* HJUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B13A1AC41EE5009B65AD /* HJUserInfo.m */; };
+		2672B13E1AC44025009B65AD /* HJBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */; };
 		26CD750A1AC2799100D897FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD75091AC2799100D897FF /* main.m */; };
 		26CD750D1AC2799100D897FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD750C1AC2799100D897FF /* AppDelegate.m */; };
 		26CD75101AC2799100D897FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD750F1AC2799100D897FF /* ViewController.m */; };
@@ -181,6 +186,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2672B12B1AC3F750009B65AD /* HJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNavigationController.h; sourceTree = "<group>"; };
+		2672B12C1AC3F750009B65AD /* HJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNavigationController.m; sourceTree = "<group>"; };
+		2672B12F1AC41624009B65AD /* HJMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJMeViewController.h; sourceTree = "<group>"; };
+		2672B1301AC41624009B65AD /* HJMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJMeViewController.m; sourceTree = "<group>"; };
+		2672B1321AC41BDB009B65AD /* HJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJLoginViewController.h; sourceTree = "<group>"; };
+		2672B1331AC41BDB009B65AD /* HJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJLoginViewController.m; sourceTree = "<group>"; };
+		2672B1351AC41E70009B65AD /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		2672B1391AC41EE5009B65AD /* HJUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJUserInfo.h; sourceTree = "<group>"; };
+		2672B13A1AC41EE5009B65AD /* HJUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJUserInfo.m; sourceTree = "<group>"; };
+		2672B13C1AC44025009B65AD /* HJBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJBaseLoginViewController.h; sourceTree = "<group>"; };
+		2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJBaseLoginViewController.m; sourceTree = "<group>"; };
 		26CD75041AC2799100D897FF /* XMPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CD75081AC2799100D897FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CD75091AC2799100D897FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -534,6 +550,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2672B1291AC3F6F9009B65AD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2672B1391AC41EE5009B65AD /* HJUserInfo.h */,
+				2672B13A1AC41EE5009B65AD /* HJUserInfo.m */,
+				2672B1351AC41E70009B65AD /* Singleton.h */,
+				2672B12A1AC3F727009B65AD /* Controllers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2672B12A1AC3F727009B65AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2672B12B1AC3F750009B65AD /* HJNavigationController.h */,
+				2672B12C1AC3F750009B65AD /* HJNavigationController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2672B12E1AC415F7009B65AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2672B12F1AC41624009B65AD /* HJMeViewController.h */,
+				2672B1301AC41624009B65AD /* HJMeViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		26CD74FB1AC2799100D897FF = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +642,7 @@
 		26CD752F1AC2956000D897FF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2672B1291AC3F6F9009B65AD /* Common */,
 				26CD77451AC2C86900D897FF /* Main */,
 				26CD77441AC2C84600D897FF /* Login */,
 				26CD77431AC2C81A00D897FF /* Others */,
@@ -1504,6 +1550,7 @@
 		26CD77451AC2C86900D897FF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2672B12E1AC415F7009B65AD /* Controllers */,
 				26CD75111AC2799100D897FF /* Main.storyboard */,
 			);
 			path = Main;
@@ -1512,8 +1559,12 @@
 		26CD77481AC2D10600D897FF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2672B1321AC41BDB009B65AD /* HJLoginViewController.h */,
+				2672B1331AC41BDB009B65AD /* HJLoginViewController.m */,
 				26CD77491AC2D13A00D897FF /* HJOtherLoginViewController.h */,
 				26CD774A1AC2D13A00D897FF /* HJOtherLoginViewController.m */,
+				2672B13C1AC44025009B65AD /* HJBaseLoginViewController.h */,
+				2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1741,6 +1792,7 @@
 				26CD77021AC298C400D897FF /* XMPPSoftwareVersion.m in Sources */,
 				26CD76E31AC298C400D897FF /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				26CD77151AC298C400D897FF /* XMPPStreamManagementMemoryStorage.m in Sources */,
+				2672B13B1AC41EE5009B65AD /* HJUserInfo.m in Sources */,
 				26CD76D01AC298C400D897FF /* XMPPUserCoreDataStorageObject.m in Sources */,
 				26CD77141AC298C400D897FF /* XMPPBlocking.m in Sources */,
 				26CD77211AC298C400D897FF /* XMPPMessageCarbons.m in Sources */,
@@ -1761,11 +1813,13 @@
 				26CD76F31AC298C400D897FF /* XMPPvCardTempEmail.m in Sources */,
 				26CD75681AC2976D00D897FF /* DDXMLElement.m in Sources */,
 				26CD750D1AC2799100D897FF /* AppDelegate.m in Sources */,
+				2672B1311AC41624009B65AD /* HJMeViewController.m in Sources */,
 				26CD76D31AC298C400D897FF /* XMPPUserMemoryStorageObject.m in Sources */,
 				26CD754C1AC2974700D897FF /* DDAbstractDatabaseLogger.m in Sources */,
 				26CD77101AC298C400D897FF /* XMPPMessage+XEP_0172.m in Sources */,
 				26CD76D81AC298C400D897FF /* XMPPJabberRPCModule.m in Sources */,
 				26CD76FA1AC298C400D897FF /* XMPPPubSub.m in Sources */,
+				2672B12D1AC3F750009B65AD /* HJNavigationController.m in Sources */,
 				26CD76C01AC298C400D897FF /* XMPPModule.m in Sources */,
 				26CD76C11AC298C400D897FF /* XMPPParser.m in Sources */,
 				26CD775F1AC2D34200D897FF /* UIView+WF.m in Sources */,
@@ -1787,6 +1841,7 @@
 				26CD77181AC298C400D897FF /* XMPPAutoPing.m in Sources */,
 				26CD76DA1AC298C400D897FF /* XMPPLastActivity.m in Sources */,
 				26CD75521AC2974700D897FF /* DDDispatchQueueLogFormatter.m in Sources */,
+				2672B1341AC41BDB009B65AD /* HJLoginViewController.m in Sources */,
 				26CD773F1AC29A3E00D897FF /* XMPPTimer.m in Sources */,
 				26CD773A1AC29A3E00D897FF /* GCDMulticastDelegate.m in Sources */,
 				26CD770B1AC298C400D897FF /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
@@ -1800,6 +1855,7 @@
 				26CD76E51AC298C400D897FF /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				26CD771F1AC298C400D897FF /* XMPPMessage+XEP_0224.m in Sources */,
 				26CD754D1AC2974700D897FF /* DDASLLogger.m in Sources */,
+				2672B13E1AC44025009B65AD /* HJBaseLoginViewController.m in Sources */,
 				26CD76F41AC298C400D897FF /* XMPPvCardTempLabel.m in Sources */,
 				26CD75951AC298A600D897FF /* XMPPAnonymousAuthentication.m in Sources */,
 				26CD770C1AC298C400D897FF /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,

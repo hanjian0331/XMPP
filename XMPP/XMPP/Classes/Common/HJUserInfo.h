@@ -19,6 +19,11 @@ singleton_interface(HJUserInfo);
 //登录状态，登录成功为YES
 @property (nonatomic, assign) BOOL loginStatus;
 
+//注册用户名
+@property (nonatomic, copy) NSString *regUser;
+//注册密码
+@property (nonatomic, copy) NSString *regPwd;
+
 - (void)saveUserInfoToSanbox;
 - (void)loadUserInfoFromSanbox;
 @end

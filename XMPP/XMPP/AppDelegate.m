@@ -13,7 +13,7 @@
 @interface AppDelegate ()<XMPPStreamDelegate>
 {
     XMPPStream *_XMPPStream;
-    XMPPRresultBlock _resultBlock;
+    XMPPResultBlock _resultBlock;
 }
 @end
 
@@ -55,9 +55,14 @@
     }
     //设置JID
     //resource标实用户的客户端］
-    NSString *user = [HJUserInfo sharedHJUserInfo].user;
+    NSString *user = nil;
+    if (self.isRegisterOperation) {
+        user = [HJUserInfo sharedHJUserInfo].regUser;
+    }else{
+        user = [HJUserInfo sharedHJUserInfo].user;
+    }
     
-    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"CCR.local" resource:@"iPHone"];
+    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"CCR.local" resource:@"iPhone"];
     _XMPPStream.myJID = myJID;
     
     //设置服务器的域名
@@ -94,7 +99,13 @@
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
 {
     HJLog(@"与主机连接成功");
-    [self sendPwsToHost];
+    if (self.isRegisterOperation) {
+        NSString *pwd = [HJUserInfo sharedHJUserInfo].regPwd;
+        [_XMPPStream registerWithPassword:pwd error:nil];
+    }else{
+        [self sendPwsToHost];
+    }
+    
 }
 #pragma mark 与主机断开连接
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error
@@ -123,7 +134,21 @@
         _resultBlock(XMPPResultTypeLoginFailure);
     }
 }
-
+#pragma mark 注册成功
+- (void)xmppStreamDidRegister:(XMPPStream *)sender
+{
+    HJLog(@"注册成功");
+    if(_resultBlock){
+        _resultBlock(XMPPResultTypeRegisterSuccess);
+    }
+}
+- (void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error
+{
+    HJLog(@"注册失败");
+    if(_resultBlock){
+        _resultBlock(XMPPResultTypeRegisterFailure);
+    }
+}
 #pragma mark - 公共方法
 #pragma mark 注销
 - (void)xmppUserLogout
@@ -141,13 +166,24 @@
     [HJUserInfo sharedHJUserInfo].loginStatus = NO;
     [[HJUserInfo sharedHJUserInfo] saveUserInfoToSanbox];
 }
-
-- (void)xmppUserLogin:(XMPPRresultBlock)resultBlock
+#pragma mark 登陆
+- (void)xmppUserLogin:(XMPPResultBlock)resultBlock
 {
     _resultBlock = resultBlock;
     //如果以前连接过要断开
     [_XMPPStream disconnect];
     //连接主机
     [self connentToHost];
+}
+#pragma mark 注册
+- (void)xmppUserRegister:(XMPPResultBlock)resultBlock
+{
+    _resultBlock = resultBlock;
+    //如果以前连接过要断开
+    [_XMPPStream disconnect];
+    //连接主机
+    [self connentToHost];
+    //发送注册的密码
+    
 }
 @end

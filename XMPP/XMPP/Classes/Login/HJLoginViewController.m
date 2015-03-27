@@ -7,8 +7,9 @@
 //
 
 #import "HJLoginViewController.h"
+#import "HJRegisterViewController.h"
 
-@interface HJLoginViewController ()
+@interface HJLoginViewController ()<HJRegisterViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *userLable;
 @property (weak, nonatomic) IBOutlet UITextField *pwdField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
@@ -36,7 +37,33 @@
 }
 
 - (IBAction)loginBtnClickj:(UIButton *)sender {
-  
+    //把用户名和密码放到沙盒里面
+    HJUserInfo *userInfo = [HJUserInfo sharedHJUserInfo];
+    userInfo.user = self.userLable.text;
+    userInfo.pwd = self.pwdField.text;
+    
+    [super login];
+
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //获取注册控制器
+    id destVc = segue.destinationViewController;
+    if ([destVc isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = destVc;
+        
+        HJRegisterViewController *top = (HJRegisterViewController *)nav.topViewController;
+        if ([top isKindOfClass:[HJRegisterViewController class]]) {
+            top.delegate = self;
+        }
+    }
+}
+#pragma mark - RegisterViewController delegate
+- (void)HJRegisterViewControllerDidFinishRegister
+{
+    [MBProgressHUD showSuccess:@"注册成功" toView:self.view];
+    self.userLable.text = [HJUserInfo sharedHJUserInfo].regUser;
+    
+}
 @end

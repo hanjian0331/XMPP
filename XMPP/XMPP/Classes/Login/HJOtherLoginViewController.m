@@ -44,13 +44,14 @@
     userInfo.user = self.userField.text;
     userInfo.pwd = self.pwdField.text;
     
-    [self login];
+    [super login];
 }
 
 
 - (IBAction)cancel:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (void)dealloc
 {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2603F9341AC4E99D00AB2CCE /* HJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2603F9331AC4E99D00AB2CCE /* HJRegisterViewController.m */; };
 		2672B12D1AC3F750009B65AD /* HJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B12C1AC3F750009B65AD /* HJNavigationController.m */; };
 		2672B1311AC41624009B65AD /* HJMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1301AC41624009B65AD /* HJMeViewController.m */; };
 		2672B1341AC41BDB009B65AD /* HJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1331AC41BDB009B65AD /* HJLoginViewController.m */; };
@@ -186,6 +187,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2603F9321AC4E99D00AB2CCE /* HJRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJRegisterViewController.h; sourceTree = "<group>"; };
+		2603F9331AC4E99D00AB2CCE /* HJRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJRegisterViewController.m; sourceTree = "<group>"; };
 		2672B12B1AC3F750009B65AD /* HJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNavigationController.h; sourceTree = "<group>"; };
 		2672B12C1AC3F750009B65AD /* HJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNavigationController.m; sourceTree = "<group>"; };
 		2672B12F1AC41624009B65AD /* HJMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJMeViewController.h; sourceTree = "<group>"; };
@@ -1559,12 +1562,14 @@
 		26CD77481AC2D10600D897FF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2672B13C1AC44025009B65AD /* HJBaseLoginViewController.h */,
+				2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */,
 				2672B1321AC41BDB009B65AD /* HJLoginViewController.h */,
 				2672B1331AC41BDB009B65AD /* HJLoginViewController.m */,
 				26CD77491AC2D13A00D897FF /* HJOtherLoginViewController.h */,
 				26CD774A1AC2D13A00D897FF /* HJOtherLoginViewController.m */,
-				2672B13C1AC44025009B65AD /* HJBaseLoginViewController.h */,
-				2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */,
+				2603F9321AC4E99D00AB2CCE /* HJRegisterViewController.h */,
+				2603F9331AC4E99D00AB2CCE /* HJRegisterViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1819,6 +1824,7 @@
 				26CD77101AC298C400D897FF /* XMPPMessage+XEP_0172.m in Sources */,
 				26CD76D81AC298C400D897FF /* XMPPJabberRPCModule.m in Sources */,
 				26CD76FA1AC298C400D897FF /* XMPPPubSub.m in Sources */,
+				2603F9341AC4E99D00AB2CCE /* HJRegisterViewController.m in Sources */,
 				2672B12D1AC3F750009B65AD /* HJNavigationController.m in Sources */,
 				26CD76C01AC298C400D897FF /* XMPPModule.m in Sources */,
 				26CD76C11AC298C400D897FF /* XMPPParser.m in Sources */,

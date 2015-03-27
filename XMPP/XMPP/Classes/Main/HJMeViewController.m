@@ -98,8 +98,9 @@
 }
 */
 - (IBAction)logoutBtnClick:(UIBarButtonItem *)sender {
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    [app xmppUserLogout];
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
+//    [app xmppUserLogout];
+    [[HJXMPPTool sharedHJXMPPTool] xmppUserLogout];
 }
 
 @end

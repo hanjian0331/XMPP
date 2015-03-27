@@ -24,12 +24,12 @@
     //显示正在登录
     [MBProgressHUD showMessage:@"正在登录..." toView:self.view];
     
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
     
-    app.registerOperation = NO;
+    [HJXMPPTool sharedHJXMPPTool].registerOperation = NO;
     __weak typeof (self) weekSelf = self;
     
-    [app xmppUserLogin:^(XMPPResultType type) {
+    [[HJXMPPTool sharedHJXMPPTool] xmppUserLogin:^(XMPPResultType type) {
         [weekSelf handleResultTye:type];
     }];
 }

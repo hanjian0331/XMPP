@@ -53,14 +53,14 @@
     userinfo.regUser = self.userField.text;
     userinfo.regPwd = self.pwdField.text;
 
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    app.registerOperation = YES;
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    [HJXMPPTool sharedHJXMPPTool].registerOperation = YES;
     
     //提示
     [MBProgressHUD showMessage:@"正在注册" toView:self.view];
     
     __weak typeof(self) weakSelf = self;
-    [app xmppUserRegister:^(XMPPResultType type) {
+    [[HJXMPPTool sharedHJXMPPTool] xmppUserRegister:^(XMPPResultType type) {
         [weakSelf handleResultTye:type];
     }];
 }

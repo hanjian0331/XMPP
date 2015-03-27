@@ -15,6 +15,7 @@
 #import "CategoryWF.h"
 #import "MBProgressHUD+HM.h"
 #import "HJUserInfo.h"
+#import "HJXMPPTool.h"
 
 //自定义log
 #ifdef DEBUG

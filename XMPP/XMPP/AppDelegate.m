@@ -20,6 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //沙盒
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
+    HJLog(@"%@",path);
     //打开xmpp日志
 //    [DDLog addLogger:[DDTTYLogger sharedInstance]];
     

@@ -148,7 +148,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkL-oY-Z71" userLabel="其他方式登陆框容器">
                                 <rect key="frame" x="100" y="114" width="400" height="200"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zhangsan" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U43-jN-o7k">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hanjian" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U43-jN-o7k">
                                         <rect key="frame" x="0.0" y="8" width="400" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="yeM-tv-QCF"/>
@@ -168,7 +168,7 @@
                                             <action selector="loginBtnClick:" destination="zDr-Lv-MdX" eventType="touchUpInside" id="Qfb-gb-j9M"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zhangsan" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bo3-o7-v9O">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bo3-o7-v9O">
                                         <rect key="frame" x="0.0" y="62" width="400" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="HWI-ZZ-E9N"/>

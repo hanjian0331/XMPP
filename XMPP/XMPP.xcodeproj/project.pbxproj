@@ -24,6 +24,8 @@
 		2672B1341AC41BDB009B65AD /* HJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1331AC41BDB009B65AD /* HJLoginViewController.m */; };
 		2672B13B1AC41EE5009B65AD /* HJUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B13A1AC41EE5009B65AD /* HJUserInfo.m */; };
 		2672B13E1AC44025009B65AD /* HJBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */; };
+		269F18061AC667800032B28E /* HJProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269F18051AC667800032B28E /* HJProfileViewController.m */; };
+		269F180A1AC6918B0032B28E /* HJEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269F18091AC6918B0032B28E /* HJEditProfileViewController.m */; };
 		26CD750A1AC2799100D897FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD75091AC2799100D897FF /* main.m */; };
 		26CD750D1AC2799100D897FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD750C1AC2799100D897FF /* AppDelegate.m */; };
 		26CD75131AC2799100D897FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CD75111AC2799100D897FF /* Main.storyboard */; };
@@ -228,6 +230,10 @@
 		2672B13A1AC41EE5009B65AD /* HJUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJUserInfo.m; sourceTree = "<group>"; };
 		2672B13C1AC44025009B65AD /* HJBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJBaseLoginViewController.h; sourceTree = "<group>"; };
 		2672B13D1AC44025009B65AD /* HJBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJBaseLoginViewController.m; sourceTree = "<group>"; };
+		269F18041AC667800032B28E /* HJProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJProfileViewController.h; sourceTree = "<group>"; };
+		269F18051AC667800032B28E /* HJProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJProfileViewController.m; sourceTree = "<group>"; };
+		269F18081AC6918B0032B28E /* HJEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJEditProfileViewController.h; sourceTree = "<group>"; };
+		269F18091AC6918B0032B28E /* HJEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJEditProfileViewController.m; sourceTree = "<group>"; };
 		26CD75041AC2799100D897FF /* XMPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CD75081AC2799100D897FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CD75091AC2799100D897FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -612,11 +618,7 @@
 		2672B1291AC3F6F9009B65AD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2672B1391AC41EE5009B65AD /* HJUserInfo.h */,
-				2672B13A1AC41EE5009B65AD /* HJUserInfo.m */,
-				2672B1351AC41E70009B65AD /* Singleton.h */,
-				261A15531AC5488C00977D24 /* HJXMPPTool.h */,
-				261A15541AC5488C00977D24 /* HJXMPPTool.m */,
+				269F18071AC66C910032B28E /* Singleton */,
 				2672B12A1AC3F727009B65AD /* Controllers */,
 			);
 			path = Common;
@@ -636,8 +638,24 @@
 			children = (
 				2672B12F1AC41624009B65AD /* HJMeViewController.h */,
 				2672B1301AC41624009B65AD /* HJMeViewController.m */,
+				269F18041AC667800032B28E /* HJProfileViewController.h */,
+				269F18051AC667800032B28E /* HJProfileViewController.m */,
+				269F18081AC6918B0032B28E /* HJEditProfileViewController.h */,
+				269F18091AC6918B0032B28E /* HJEditProfileViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		269F18071AC66C910032B28E /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				2672B1391AC41EE5009B65AD /* HJUserInfo.h */,
+				2672B13A1AC41EE5009B65AD /* HJUserInfo.m */,
+				2672B1351AC41E70009B65AD /* Singleton.h */,
+				261A15531AC5488C00977D24 /* HJXMPPTool.h */,
+				261A15541AC5488C00977D24 /* HJXMPPTool.m */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 		26CD74FB1AC2799100D897FF = {
@@ -1777,6 +1795,7 @@
 				26CD77201AC298C400D897FF /* XMPPMessage+XEP_0280.m in Sources */,
 				26CD773B1AC29A3E00D897FF /* RFImageToDataTransformer.m in Sources */,
 				26CD76CA1AC298C400D897FF /* XMPPProcessOne.m in Sources */,
+				269F18061AC667800032B28E /* HJProfileViewController.m in Sources */,
 				26CD76C71AC298C400D897FF /* XMPPIncomingFileTransfer.m in Sources */,
 				26CD77161AC298C400D897FF /* XMPPStreamManagementStanzas.m in Sources */,
 				26CD76BB1AC298C400D897FF /* XMPPConstants.m in Sources */,
@@ -1860,6 +1879,7 @@
 				261A177A1AC5623500977D24 /* DDASLLogCapture.m in Sources */,
 				26CD76D41AC298C400D897FF /* XMPPRoster.m in Sources */,
 				26CD76C31AC298C400D897FF /* XMPPStream.m in Sources */,
+				269F180A1AC6918B0032B28E /* HJEditProfileViewController.m in Sources */,
 				26CD76F91AC298C400D897FF /* XMPPIQ+XEP_0060.m in Sources */,
 				261A177B1AC5623500977D24 /* DDASLLogger.m in Sources */,
 				26CD76E01AC298C400D897FF /* XMPPRoomHybrid.xcdatamodeld in Sources */,

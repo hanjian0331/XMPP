@@ -27,6 +27,7 @@ singleton_interface(HJXMPPTool)
 //注册操作：YES
 @property (nonatomic, assign, getter=isRegisterOperation) BOOL registerOperation;
 
+@property (nonatomic, strong) XMPPvCardTempModule *vCard;
 
 - (void)xmppUserLogout;
 - (void)xmppUserLogin:(XMPPResultBlock)resultBlock;

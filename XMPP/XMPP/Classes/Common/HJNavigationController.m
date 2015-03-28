@@ -30,6 +30,8 @@
     NSMutableDictionary *att = [NSMutableDictionary dictionary];
     att[NSForegroundColorAttributeName] = [UIColor whiteColor];
     att[NSFontAttributeName] = [UIFont systemFontOfSize:20];
+    
+    [navBar setTitleTextAttributes:att];
     //状态栏的样式
     //xcode5以上，默认的样式由控制器决定
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;

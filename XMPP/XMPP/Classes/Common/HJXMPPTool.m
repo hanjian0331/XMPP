@@ -12,6 +12,10 @@
 {
     XMPPStream *_XMPPStream;
     XMPPResultBlock _resultBlock;
+    
+    XMPPvCardCoreDataStorage *_vCardStorage;
+    XMPPvCardAvatarModule *_avatar;
+    XMPPReconnect *_reconnect;
 }
 @end
 
@@ -23,6 +27,19 @@ singleton_implementation(HJXMPPTool);
 - (void)setupXMPPStream
 {
     _XMPPStream = [[XMPPStream alloc] init];
+#warning 每一个模块创建以后都需要激活
+    //自动连接模块
+    _reconnect = [[XMPPReconnect alloc] init];
+    [_reconnect activate:_XMPPStream];
+    
+    //创建
+    _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+    _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
+    //激活
+    [_vCard activate:_XMPPStream];
+    //头像模块
+    _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
+    [_avatar activate:_XMPPStream];
     
     //设置代理
     [_XMPPStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -75,7 +92,23 @@ singleton_implementation(HJXMPPTool);
     XMPPPresence *presence = [XMPPPresence presence];
     [_XMPPStream sendElement:presence];
 }
-
+#pragma mark 销毁
+- (void)teardownXmpp
+{
+    //停止模块
+    [_XMPPStream removeDelegate:self];
+    [_reconnect deactivate];
+    [_avatar deactivate];
+    [_vCard deactivate];
+    //断块连接
+    [_XMPPStream disconnect];
+    //清空资源
+    _reconnect = nil;
+    _vCard = nil;
+    _vCardStorage = nil;
+    _avatar = nil;
+    _XMPPStream = nil;
+}
 #pragma mark - XMPPStream delegate
 #pragma mark 与主机连接成功
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
@@ -169,4 +202,10 @@ singleton_implementation(HJXMPPTool);
     //发送注册的密码
     
 }
+
+- (void)dealloc
+{
+    [self teardownXmpp];
+}
+
 @end

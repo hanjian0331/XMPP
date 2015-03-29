@@ -12,14 +12,14 @@
 
 @interface HJProfileViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,HJEditProfileViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
-@property (weak, nonatomic) IBOutlet UILabel *nicknameLable;
-@property (weak, nonatomic) IBOutlet UILabel *numberLable;//账号
-@property (weak, nonatomic) IBOutlet UILabel *orgnameLable;//公司
+@property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;//账号
+@property (weak, nonatomic) IBOutlet UILabel *orgnameLabel;//公司
 @property (weak, nonatomic) IBOutlet UILabel *orgunitLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLable;//职位
-@property (weak, nonatomic) IBOutlet UILabel *phoneLable;
-@property (weak, nonatomic) IBOutlet UILabel *emailLable;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;//职位
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
 @end
 
@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     self.title = @"个人信息";
     [self loadVCard];
@@ -38,17 +39,18 @@
     if (myvCardTemp.photo) {
         self.headView.image = [UIImage imageWithData: myvCardTemp.photo];
     }
-    self.nicknameLable.text = myvCardTemp.nickname;
-    self.numberLable.text = [HJUserInfo sharedHJUserInfo].user;
-    self.orgnameLable.text = myvCardTemp.orgName;
+    self.nicknameLabel.text = myvCardTemp.nickname;
+    self.numberLabel.text = [HJUserInfo sharedHJUserInfo].user;
+    self.orgnameLabel
+    .text = myvCardTemp.orgName;
     if (myvCardTemp.orgUnits.count > 0) {
         self.orgunitLabel.text = [myvCardTemp.orgUnits firstObject];
     }
-    self.titleLable.text = myvCardTemp.title;
+    self.titleLabel.text = myvCardTemp.title;
     // myvCardTemp.telecomsAddresses 这个get方法没有对电子名片的xml的数据进行解析
     //    self.phoneLable.text = myvCardTemp.telecomsAddresses;
-    self.phoneLable.text = myvCardTemp.note;
-    self.emailLable.text = myvCardTemp.mailer;
+    self.phoneLabel.text = myvCardTemp.note;
+    self.emailLabel.text = myvCardTemp.mailer;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,14 +114,16 @@
 {
     XMPPvCardTemp *vCardTemp = [HJXMPPTool sharedHJXMPPTool].vCard.myvCardTemp;
     vCardTemp.photo = UIImagePNGRepresentation(self.headView.image);
-    vCardTemp.nickname = self.nicknameLable.text;
-    vCardTemp.orgName = self.orgnameLable.text;
+    vCardTemp.nickname = self.nicknameLabel
+    
+    .text;
+    vCardTemp.orgName = self.orgnameLabel.text;
     if (self.orgunitLabel.text.length > 0) {
         vCardTemp.orgUnits = @[self.orgunitLabel.text];
     }
-    vCardTemp.title = self.titleLable.text;
-    vCardTemp.note = self.phoneLable.text;
-    vCardTemp.mailer = self.emailLable.text;
+    vCardTemp.title = self.titleLabel.text;
+    vCardTemp.note = self.phoneLabel.text;
+    vCardTemp.mailer = self.emailLabel.text;
     
     [[HJXMPPTool sharedHJXMPPTool].vCard updateMyvCardTemp:vCardTemp];
 }

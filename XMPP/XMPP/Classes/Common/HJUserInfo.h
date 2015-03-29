@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
 
+#define DomainKey @"@ccr.local"
+
 @interface HJUserInfo : NSObject
 
 singleton_interface(HJUserInfo);
 
 @property (nonatomic, copy) NSString *user;
 @property (nonatomic, copy) NSString *pwd;
-
+@property (nonatomic, copy) NSString *jid;
 //登录状态，登录成功为YES
 @property (nonatomic, assign) BOOL loginStatus;
 

@@ -28,8 +28,11 @@ singleton_interface(HJXMPPTool)
 @property (nonatomic, assign, getter=isRegisterOperation) BOOL registerOperation;
 
 @property (nonatomic, strong) XMPPvCardTempModule *vCard;
-
+@property (nonatomic, strong) XMPPRosterCoreDataStorage *rosterSrorage;
+@property (nonatomic, strong) XMPPRoster *roster;
+@property (nonatomic, strong) XMPPStream *XMPPStream;
 - (void)xmppUserLogout;
 - (void)xmppUserLogin:(XMPPResultBlock)resultBlock;
 - (void)xmppUserRegister:(XMPPResultBlock)resultBlock;
+
 @end

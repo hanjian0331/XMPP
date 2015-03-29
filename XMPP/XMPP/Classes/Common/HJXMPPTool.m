@@ -10,12 +10,14 @@
 
 @interface HJXMPPTool()<XMPPStreamDelegate>
 {
-    XMPPStream *_XMPPStream;
+   
     XMPPResultBlock _resultBlock;
     
     XMPPvCardCoreDataStorage *_vCardStorage;
     XMPPvCardAvatarModule *_avatar;
     XMPPReconnect *_reconnect;
+    
+
 }
 @end
 
@@ -40,6 +42,10 @@ singleton_implementation(HJXMPPTool);
     //头像模块
     _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
     [_avatar activate:_XMPPStream];
+    //花名册
+    _rosterSrorage = [[XMPPRosterCoreDataStorage alloc] init];
+    _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterSrorage];
+    [_roster activate:_XMPPStream];
     
     //设置代理
     [_XMPPStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -100,6 +106,8 @@ singleton_implementation(HJXMPPTool);
     [_reconnect deactivate];
     [_avatar deactivate];
     [_vCard deactivate];
+    [_roster deactivate];
+    
     //断块连接
     [_XMPPStream disconnect];
     //清空资源
@@ -108,6 +116,8 @@ singleton_implementation(HJXMPPTool);
     _vCardStorage = nil;
     _avatar = nil;
     _XMPPStream = nil;
+    _roster = nil;
+    _rosterSrorage = nil;
 }
 #pragma mark - XMPPStream delegate
 #pragma mark 与主机连接成功

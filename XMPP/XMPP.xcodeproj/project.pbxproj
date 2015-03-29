@@ -19,6 +19,8 @@
 		261A177F1AC5623500977D24 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A17721AC5623500977D24 /* DDContextFilterLogFormatter.m */; };
 		261A17801AC5623500977D24 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A17741AC5623500977D24 /* DDDispatchQueueLogFormatter.m */; };
 		261A17811AC5623500977D24 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A17761AC5623500977D24 /* DDMultiFormatter.m */; };
+		264FD31F1AC7E3B400C083B3 /* HJContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264FD31E1AC7E3B400C083B3 /* HJContactsViewController.m */; };
+		264FD3251AC7F6C900C083B3 /* HJAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 264FD3241AC7F6C900C083B3 /* HJAddContactViewController.m */; };
 		2672B12D1AC3F750009B65AD /* HJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B12C1AC3F750009B65AD /* HJNavigationController.m */; };
 		2672B1311AC41624009B65AD /* HJMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1301AC41624009B65AD /* HJMeViewController.m */; };
 		2672B1341AC41BDB009B65AD /* HJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B1331AC41BDB009B65AD /* HJLoginViewController.m */; };
@@ -219,6 +221,10 @@
 		261A17741AC5623500977D24 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		261A17751AC5623500977D24 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		261A17761AC5623500977D24 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		264FD31D1AC7E3B400C083B3 /* HJContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJContactsViewController.h; sourceTree = "<group>"; };
+		264FD31E1AC7E3B400C083B3 /* HJContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJContactsViewController.m; sourceTree = "<group>"; };
+		264FD3231AC7F6C900C083B3 /* HJAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJAddContactViewController.h; sourceTree = "<group>"; };
+		264FD3241AC7F6C900C083B3 /* HJAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJAddContactViewController.m; sourceTree = "<group>"; };
 		2672B12B1AC3F750009B65AD /* HJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNavigationController.h; sourceTree = "<group>"; };
 		2672B12C1AC3F750009B65AD /* HJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNavigationController.m; sourceTree = "<group>"; };
 		2672B12F1AC41624009B65AD /* HJMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJMeViewController.h; sourceTree = "<group>"; };
@@ -642,6 +648,10 @@
 				269F18051AC667800032B28E /* HJProfileViewController.m */,
 				269F18081AC6918B0032B28E /* HJEditProfileViewController.h */,
 				269F18091AC6918B0032B28E /* HJEditProfileViewController.m */,
+				264FD31D1AC7E3B400C083B3 /* HJContactsViewController.h */,
+				264FD31E1AC7E3B400C083B3 /* HJContactsViewController.m */,
+				264FD3231AC7F6C900C083B3 /* HJAddContactViewController.h */,
+				264FD3241AC7F6C900C083B3 /* HJAddContactViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -961,7 +971,7 @@
 				26CD75F41AC298C300D897FF /* XEP-0012 */,
 				26CD75F91AC298C300D897FF /* XEP-0016 */,
 				26CD75FC1AC298C300D897FF /* XEP-0045 */,
-				26CD76201AC298C400D897FF /* XEP-0054 */,
+				26CD76201AC298C400D897FF /* XEP-0054电子名片 */,
 				26CD763C1AC298C400D897FF /* XEP-0059 */,
 				26CD76411AC298C400D897FF /* XEP-0060 */,
 				26CD76461AC298C400D897FF /* XEP-0065 */,
@@ -1199,7 +1209,7 @@
 			path = MemoryStorage;
 			sourceTree = "<group>";
 		};
-		26CD76201AC298C400D897FF /* XEP-0054 */ = {
+		26CD76201AC298C400D897FF /* XEP-0054电子名片 */ = {
 			isa = PBXGroup;
 			children = (
 				26CD76211AC298C400D897FF /* CoreDataStorage */,
@@ -1220,6 +1230,7 @@
 				26CD763A1AC298C400D897FF /* XMPPvCardTempTel.h */,
 				26CD763B1AC298C400D897FF /* XMPPvCardTempTel.m */,
 			);
+			name = "XEP-0054电子名片";
 			path = "XEP-0054";
 			sourceTree = "<group>";
 		};
@@ -1824,6 +1835,7 @@
 				26CD77111AC298C400D897FF /* XMPPPresence+XEP_0172.m in Sources */,
 				26CD76D51AC298C400D897FF /* XMPPSystemInputActivityMonitor.m in Sources */,
 				26CD75691AC2976D00D897FF /* DDXMLNode.m in Sources */,
+				264FD31F1AC7E3B400C083B3 /* HJContactsViewController.m in Sources */,
 				26CD775A1AC2D34200D897FF /* UIButton+WF.m in Sources */,
 				261A177D1AC5623500977D24 /* DDLog.m in Sources */,
 				261A17801AC5623500977D24 /* DDDispatchQueueLogFormatter.m in Sources */,
@@ -1869,6 +1881,7 @@
 				2603F9341AC4E99D00AB2CCE /* HJRegisterViewController.m in Sources */,
 				2672B12D1AC3F750009B65AD /* HJNavigationController.m in Sources */,
 				26CD76C01AC298C400D897FF /* XMPPModule.m in Sources */,
+				264FD3251AC7F6C900C083B3 /* HJAddContactViewController.m in Sources */,
 				26CD76C11AC298C400D897FF /* XMPPParser.m in Sources */,
 				26CD775F1AC2D34200D897FF /* UIView+WF.m in Sources */,
 				26CD76BA1AC298C400D897FF /* NSXMLElement+XMPP.m in Sources */,
@@ -2045,6 +2058,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = XMPP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2071,6 +2085,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = XMPP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

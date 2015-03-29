@@ -70,19 +70,33 @@
             </objects>
             <point key="canvasLocation" x="399" y="-548"/>
         </scene>
-        <!--Root View Controller-->
+        <!--通讯录-->
         <scene sceneID="MFg-ai-92Y">
             <objects>
-                <tableViewController id="Ekt-64-3em" sceneMemberID="viewController">
+                <tableViewController id="Ekt-64-3em" customClass="HJContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="10B-xF-skb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wLY-W1-lrm">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="0Da-99-VIE" detailTextLabel="u2M-fw-MV0" style="IBUITableViewCellStyleValue1" id="wLY-W1-lrm">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wLY-W1-lrm" id="jbo-Rm-USa">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Da-99-VIE">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u2M-fw-MV0">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -91,11 +105,64 @@
                             <outlet property="delegate" destination="Ekt-64-3em" id="NeM-1O-exh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Vc5-aD-zu3"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="Vc5-aD-zu3">
+                        <barButtonItem key="rightBarButtonItem" image="contacts_add_friend" style="plain" id="cIc-8u-xep">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="D9R-FX-8z0" kind="show" id="Vgc-4O-srR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4q-ug-qQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1219" y="154"/>
+        </scene>
+        <!--Add Contact View Controller-->
+        <scene sceneID="bit-hi-dgJ">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="D9R-FX-8z0" customClass="HJAddContactViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="xeu-EI-xch">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="vyL-eK-0wg">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Sqd-jn-j1b">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sqd-jn-j1b" id="hmX-Up-4KR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUX-hz-Vfe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="D9R-FX-8z0" id="aCg-ns-KYg"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="UUX-hz-Vfe" secondAttribute="bottom" id="AVP-aw-XMC"/>
+                                                <constraint firstItem="UUX-hz-Vfe" firstAttribute="leading" secondItem="hmX-Up-4KR" secondAttribute="leading" id="Vp5-OX-zYG"/>
+                                                <constraint firstItem="UUX-hz-Vfe" firstAttribute="top" secondItem="hmX-Up-4KR" secondAttribute="top" id="aCc-He-rwd"/>
+                                                <constraint firstAttribute="trailing" secondItem="UUX-hz-Vfe" secondAttribute="trailing" id="aFf-1U-Ghx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="D9R-FX-8z0" id="DHm-cB-POR"/>
+                            <outlet property="delegate" destination="D9R-FX-8z0" id="ZwH-vV-S0W"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-Jx-WAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="154"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="eKV-vO-3IV">
@@ -409,14 +476,14 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="emailLable" destination="ooY-P3-OxT" id="5El-SN-CBv"/>
+                        <outlet property="emailLabel" destination="ooY-P3-OxT" id="iG9-Nd-dhV"/>
                         <outlet property="headView" destination="FEd-vJ-vMe" id="IUx-Rz-N3j"/>
-                        <outlet property="nicknameLable" destination="Sji-c1-DdC" id="sla-eN-ZHs"/>
-                        <outlet property="numberLable" destination="0LS-93-TA3" id="uwc-ca-7nB"/>
-                        <outlet property="orgnameLable" destination="lu7-He-qes" id="VPd-iA-uhg"/>
+                        <outlet property="nicknameLabel" destination="Sji-c1-DdC" id="1FT-86-yOU"/>
+                        <outlet property="numberLabel" destination="0LS-93-TA3" id="FAe-GX-oEA"/>
+                        <outlet property="orgnameLabel" destination="lu7-He-qes" id="onK-jx-uIA"/>
                         <outlet property="orgunitLabel" destination="iSv-Y8-jtz" id="4Zx-yV-Hid"/>
-                        <outlet property="phoneLable" destination="mo0-Qk-VPv" id="jM4-pz-bdx"/>
-                        <outlet property="titleLable" destination="ZJZ-6s-tLE" id="0JE-71-GPI"/>
+                        <outlet property="phoneLabel" destination="mo0-Qk-VPv" id="4Yp-nO-wdq"/>
+                        <outlet property="titleLabel" destination="ZJZ-6s-tLE" id="VZA-6M-aW7"/>
                         <segue destination="Gqt-1N-Dmb" kind="show" identifier="EditVCardSegue" id="9eg-P8-J0o"/>
                     </connections>
                 </tableViewController>
@@ -490,6 +557,7 @@
     </scenes>
     <resources>
         <image name="DefaultHead" width="46" height="46"/>
+        <image name="contacts_add_friend" width="28" height="30"/>
         <image name="tabbar_contacts" width="27" height="23"/>
         <image name="tabbar_discover" width="23" height="23"/>
         <image name="tabbar_mainframe" width="25" height="23"/>

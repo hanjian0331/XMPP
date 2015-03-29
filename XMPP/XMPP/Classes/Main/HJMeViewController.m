@@ -24,8 +24,8 @@
     [super viewDidLoad];
     
     //使用coreData获取数据
-    //1.上下文
-    //2.FetchRequest
+    //1.上下文关联数据库
+    //2.创建FetchRequest请求
     //3.过滤和排序
     //4.执行请求
     //xmpp有方法可以直接获取个人信息

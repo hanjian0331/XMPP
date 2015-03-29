@@ -12,6 +12,7 @@
 #define PwdKey @"pwd"
 #define LoginStatusKey @"LoginStatus"
 
+
 @implementation HJUserInfo
 
 singleton_implementation(HJUserInfo);
@@ -33,4 +34,8 @@ singleton_implementation(HJUserInfo);
     self.loginStatus = [defaults boolForKey:LoginStatusKey];
 }
 
+- (NSString *)jid
+{
+    return [NSString stringWithFormat:@"%@%@",self.user,DomainKey];
+}
 @end

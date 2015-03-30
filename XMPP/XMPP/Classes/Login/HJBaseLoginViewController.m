@@ -64,8 +64,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     NSLog(@"登录成功");
     //登录成功后到主界面
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //                self.window.rootViewController = storyboard.instantiateInitialViewController;
-    self.view.window.rootViewController = storyboard.instantiateInitialViewController;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+//    self.view.window.rootViewController = storyboard.instantiateInitialViewController;
+    
+    //适配iOS7使用这个方法
+    [UIStoryboard showInitialVCWithName:@"Main"];
 }
 @end

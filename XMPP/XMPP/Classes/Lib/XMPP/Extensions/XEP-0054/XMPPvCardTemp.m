@@ -322,10 +322,33 @@ NSString *const kXMPPvCardTempElement = @"vCard";
 - (void)clearTelecomsAddresses { }
 
 
-- (NSArray *)emailAddresses { return nil; }
+- (NSArray *)emailAddresses
+{
+    NSXMLElement *emailE = [self elementForName:@"EMAIL"];
+    NSXMLElement *userIDE = [emailE elementForName:@"USERID"];
+    
+    NSString *email = [userIDE stringValue];
+    if (email.length > 0) {
+        return @[email];
+    }
+    return nil;
+}
+
+
 - (void)addEmailAddress:(XMPPvCardTempEmail *)email { }
 - (void)removeEmailAddress:(XMPPvCardTempEmail *)email { }
-- (void)setEmailAddresses:(NSArray *)emails { }
+- (void)setEmailAddresses:(NSArray *)emails
+{
+    if (emails.count == 0) {
+        return;
+    }
+    NSXMLElement *emailE = [self elementForName:@"EMAIL"];
+    //移除userid
+    [emailE removeElementForName:@"USERID"];
+    NSXMLElement *userIDE = [NSXMLElement elementWithName:@"USERID" stringValue:emails[0]];
+    [emailE addChild:userIDE];
+    
+}
 - (void)clearEmailAddresses { }
 
 

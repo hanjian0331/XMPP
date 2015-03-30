@@ -50,7 +50,10 @@
     // myvCardTemp.telecomsAddresses 这个get方法没有对电子名片的xml的数据进行解析
     //    self.phoneLable.text = myvCardTemp.telecomsAddresses;
     self.phoneLabel.text = myvCardTemp.note;
-    self.emailLabel.text = myvCardTemp.mailer;
+    if (myvCardTemp.emailAddresses.count > 0) {
+        self.emailLabel.text = myvCardTemp.emailAddresses[0];
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,7 +126,9 @@
     }
     vCardTemp.title = self.titleLabel.text;
     vCardTemp.note = self.phoneLabel.text;
-    vCardTemp.mailer = self.emailLabel.text;
+    if (self.emailLabel.text.length > 0) {
+        vCardTemp.emailAddresses = @[self.emailLabel.text];
+    }
     
     [[HJXMPPTool sharedHJXMPPTool].vCard updateMyvCardTemp:vCardTemp];
 }

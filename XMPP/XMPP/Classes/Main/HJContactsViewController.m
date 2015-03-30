@@ -7,6 +7,7 @@
 //
 
 #import "HJContactsViewController.h"
+#import "HJChatViewController.h"
 
 @interface HJContactsViewController ()<NSFetchedResultsControllerDelegate>
 {
@@ -89,10 +90,24 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        XMPPUserCoreDataStorageObject *user = _resultsController.fetchedObjects[indexPath.row];
-        XMPPJID *jid = user.jid;
+        XMPPUserCoreDataStorageObject *friend = _resultsController.fetchedObjects[indexPath.row];
+        XMPPJID *jid = friend.jid;
         [[HJXMPPTool sharedHJXMPPTool].roster removeUser:jid];
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XMPPUserCoreDataStorageObject *friend = _resultsController.fetchedObjects[indexPath.row];
+    [self performSegueWithIdentifier:@"ChatSegue" sender:friend.jid];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[HJChatViewController class]]) {
+        HJChatViewController *chatVc = segue.destinationViewController;
+        chatVc.friendJid = sender;
+    }
+}
 @end

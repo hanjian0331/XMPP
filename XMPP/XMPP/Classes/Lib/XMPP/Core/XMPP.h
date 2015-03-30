@@ -30,14 +30,23 @@
 
 #import "NSXMLElement+XMPP.h"
 
+
 //名片
 #import "XMPPvCardTempModule.h"
 #import "XMPPvCardCoreDataStorage.h"
+
 //头像
 #import "XMPPvCardAvatarModule.h"
+
 //自动连接模块
 #import "XMPPReconnect.h"
+
 //花名册
 #import "XMPPRoster.h"
 //#import "XMPPRosterMemoryStorage.h"
 #import "XMPPRosterCoreDataStorage.h"
+
+//消息模块
+#import "XMPPMessageArchiving.h"
+#import "XMPPMessageArchivingCoreDataStorage.h"
+

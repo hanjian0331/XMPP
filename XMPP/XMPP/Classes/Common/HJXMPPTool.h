@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
 #import "XMPP.h"
+extern NSString *const HJLoginStatusChangeNotification;
 
 typedef enum {
+    XMPPResultTypeConnecting,
     XMPPResultTypeLoginSuccess,
     XMPPResultTypeLoginFailure,
     XMPPResultTypeNetErr,
@@ -27,10 +29,11 @@ singleton_interface(HJXMPPTool)
 //注册操作：YES
 @property (nonatomic, assign, getter=isRegisterOperation) BOOL registerOperation;
 
-@property (nonatomic, strong) XMPPvCardTempModule *vCard;
-@property (nonatomic, strong) XMPPRosterCoreDataStorage *rosterSrorage;
-@property (nonatomic, strong) XMPPRoster *roster;
-@property (nonatomic, strong) XMPPStream *XMPPStream;
+@property (nonatomic, strong, readonly) XMPPvCardTempModule *vCard;
+@property (nonatomic, strong, readonly) XMPPRosterCoreDataStorage *rosterSrorage;
+@property (nonatomic, strong, readonly) XMPPRoster *roster;
+@property (nonatomic, strong, readonly) XMPPStream *XMPPStream;
+@property (nonatomic, strong, readonly) XMPPMessageArchivingCoreDataStorage *messageCoreDataStorage;
 - (void)xmppUserLogout;
 - (void)xmppUserLogin:(XMPPResultBlock)resultBlock;
 - (void)xmppUserRegister:(XMPPResultBlock)resultBlock;

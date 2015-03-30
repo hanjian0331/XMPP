@@ -36,7 +36,16 @@
     if ([HJUserInfo sharedHJUserInfo].loginStatus) {
         self.window.rootViewController = [UIStoryboard storyboardWithName:@"Main" bundle:nil].instantiateInitialViewController;
         //自动登录服务器
-        [[HJXMPPTool sharedHJXMPPTool] xmppUserLogin:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[HJXMPPTool sharedHJXMPPTool] xmppUserLogin:nil];
+        });
+        
+    }
+    
+    //注册应用接受通知
+    if([[UIDevice currentDevice].systemVersion doubleValue] > 8.0){
+        UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil];
+        [application registerUserNotificationSettings:setting];
     }
     
     return YES;

@@ -7,7 +7,7 @@
 //
 
 #import "HJXMPPTool.h"
-
+NSString *const HJLoginStatusChangeNotification = @"HJLoginStatusChangeNotification";
 @interface HJXMPPTool()<XMPPStreamDelegate>
 {
    
@@ -16,8 +16,8 @@
     XMPPvCardCoreDataStorage *_vCardStorage;
     XMPPvCardAvatarModule *_avatar;
     XMPPReconnect *_reconnect;
+    XMPPMessageArchiving *_messageArchiving;
     
-
 }
 @end
 
@@ -29,15 +29,15 @@ singleton_implementation(HJXMPPTool);
 - (void)setupXMPPStream
 {
     _XMPPStream = [[XMPPStream alloc] init];
+    _XMPPStream.enableBackgroundingOnSocket = YES;
 #warning 每一个模块创建以后都需要激活
     //自动连接模块
     _reconnect = [[XMPPReconnect alloc] init];
     [_reconnect activate:_XMPPStream];
     
-    //创建
+    //名片
     _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
     _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
-    //激活
     [_vCard activate:_XMPPStream];
     //头像模块
     _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
@@ -46,7 +46,10 @@ singleton_implementation(HJXMPPTool);
     _rosterSrorage = [[XMPPRosterCoreDataStorage alloc] init];
     _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterSrorage];
     [_roster activate:_XMPPStream];
-    
+    //聊天
+    _messageCoreDataStorage = [[XMPPMessageArchivingCoreDataStorage alloc] init];
+    _messageArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_messageCoreDataStorage];
+    [_messageArchiving activate:_XMPPStream];
     //设置代理
     [_XMPPStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
     
@@ -58,6 +61,7 @@ singleton_implementation(HJXMPPTool);
     if (!_XMPPStream) {
         [self setupXMPPStream];
     }
+    [self postNotification:XMPPResultTypeConnecting];
     //设置JID
     //resource标实用户的客户端］
     NSString *user = nil;
@@ -101,15 +105,17 @@ singleton_implementation(HJXMPPTool);
 #pragma mark 销毁
 - (void)teardownXmpp
 {
-    //停止模块
     [_XMPPStream removeDelegate:self];
+    //停止模块
     [_reconnect deactivate];
     [_avatar deactivate];
     [_vCard deactivate];
     [_roster deactivate];
+    [_messageArchiving deactivate];
     
     //断块连接
     [_XMPPStream disconnect];
+    
     //清空资源
     _reconnect = nil;
     _vCard = nil;
@@ -118,7 +124,17 @@ singleton_implementation(HJXMPPTool);
     _XMPPStream = nil;
     _roster = nil;
     _rosterSrorage = nil;
+    _messageArchiving = nil;
+    _messageCoreDataStorage = nil;
 }
+
+- (void)postNotification:(XMPPResultType)resultType
+{
+    NSDictionary *userInfo = @{@"resultType":@(resultType)};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:HJLoginStatusChangeNotification object:nil userInfo:userInfo];
+}
+
 #pragma mark - XMPPStream delegate
 #pragma mark 与主机连接成功
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
@@ -138,6 +154,9 @@ singleton_implementation(HJXMPPTool);
     if (error && _resultBlock) {
         _resultBlock(XMPPResultTypeNetErr);
     }
+    if (error) {
+        [self postNotification:XMPPResultTypeNetErr];
+    }
     HJLog(@"与主机断开连接:%@",error);
 }
 #pragma mark 授权成功
@@ -149,7 +168,7 @@ singleton_implementation(HJXMPPTool);
     if (_resultBlock) {
         _resultBlock(XMPPResultTypeLoginSuccess);
     }
-    
+    [self postNotification:XMPPResultTypeLoginSuccess];
 }
 #pragma mark 授权失败
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error
@@ -158,6 +177,7 @@ singleton_implementation(HJXMPPTool);
     if (_resultBlock) {
         _resultBlock(XMPPResultTypeLoginFailure);
     }
+    [self postNotification:XMPPResultTypeLoginFailure];
 }
 #pragma mark 注册成功
 - (void)xmppStreamDidRegister:(XMPPStream *)sender
@@ -172,6 +192,19 @@ singleton_implementation(HJXMPPTool);
     HJLog(@"注册失败");
     if(_resultBlock){
         _resultBlock(XMPPResultTypeRegisterFailure);
+    }
+}
+#pragma mark 接收到好友消息
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    //判断是否在前台
+    if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
+        HJLog(@"后台");
+        UILocalNotification *localNoti = [[UILocalNotification alloc] init];
+        localNoti.alertBody = [NSString stringWithFormat:@"%@:%@",message.fromStr,message.body];
+        localNoti.soundName = @"default";
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNoti];
     }
 }
 #pragma mark - 公共方法
